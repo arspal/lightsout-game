@@ -1,0 +1,187 @@
+.LightsOut-container {
+  position: relative;
+  max-width: 525px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 5px;
+  padding-top: 5px;
+  background-color: #212f42;
+}
+
+.LightsOut-Winbox {
+  z-index: 2;
+  font-size: 24px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  align-items: center;
+  font-weight: 600;
+  justify-content: center;
+  background-color: rgba(48, 68, 95, 0.9);
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: absolute;
+}
+
+.LightsOut-RestartBtn {
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: rgba(58, 84, 117, 0.9);
+  padding: 10px 16px;
+  margin-bottom: 20px;
+}
+
+.LightsOut-RestartBtn:hover {
+  background-color: rgba(68, 98, 138, 0.9);
+}
+
+.LightsOut-RestartBtn:active {
+  background-color: rgba(54, 78, 110, 0.9);
+}
+
+.LightsOut-cell {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.LightsOut-colorActive,
+.LightsOut-colorInactive {
+  z-index: 0;
+  /* animation-duration: 400ms; */
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  transform: scale(1.4);
+  border-radius: 50%;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: all 200ms ease-out;
+}
+
+.LightsOut-colorActive {
+  background-color: #75a4e0;
+}
+
+.LightsOut-colorInactive {
+  background-color: #30445f;
+}
+
+.LightsOut-cell:hover .LightsOut-colorActive {
+  background-color: #82b1ee;
+}
+
+.LightsOut-cell:hover .LightsOut-colorInactive {
+  background-color: #384e6b;
+}
+
+.LightsOut-cell:active .LightsOut-colorActive,
+.LightsOut-cell:active .LightsOut-colorInactive {
+  border-radius: 0;
+  transform: scale(0.9);
+}
+.LightsOut-cell:active .LightsOut-colorActive {
+  background-color: #5d84b6;
+}
+.LightsOut-cell:active .LightsOut-colorInactive {
+  background-color: #283950;
+}
+
+.LightsOut-cell--lit .LightsOut-colorActive {
+  z-index: 1;
+}
+
+@media screen and (max-width: 530px) {
+  .LightsOut-container {
+    max-width: 400px;
+  }
+
+  .LightsOut-cell {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .LightsOut-container {
+    max-width: 275px;
+  }
+
+  .LightsOut-cell {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@keyframes scale-center {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1.4);
+  }
+}
+
+@keyframes scale-left {
+  from {
+    transform: scale(2) translateX(99.99%);
+    transform-origin: right;
+  }
+
+  to {
+    transform: scale(2) translateX(40%);
+    transform-origin: right;
+  }
+}
+
+@keyframes scale-right {
+  from {
+    transform: scale(2) translateX(-99.99%);
+    transform-origin: left;
+  }
+
+  to {
+    transform: scale(2) translateX(-40%);
+    transform-origin: left;
+  }
+}
+
+@keyframes scale-top {
+  from {
+    transform: scale(2) translateY(99.99%);
+    transform-origin: bottom;
+  }
+
+  to {
+    transform: scale(2) translateY(40%);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes scale-bottom {
+  from {
+    transform: scale(2) translateY(-99.99%);
+    transform-origin: top;
+  }
+
+  to {
+    transform: scale(2) translateY(-40%);
+    transform-origin: top;
+  }
+}
